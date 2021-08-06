@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-const initialValues = {
+const initialStateValues = {
     name: "Player",
-    bonusHP: 0,
-    hp: 20,
-    atk: 2,
+    hp: 0,
+    atk: 0,
     def: 0,
     accuracy: 0,
     "sp-atk": 0,
@@ -12,9 +11,20 @@ const initialValues = {
     xp: 0,
     points: 20
 }
+const basePlayerStats = {
+    name: "",
+    hp: 20,
+    atk: 5,
+    def: 0,
+    accuracy: 0,
+    "sp-atk": 0,
+    "sp-def": 0,
+    xp: 0,
+    points: 0
+}
 
 export default function CharacterCreator(){
-    const [state, setState] = useState(initialValues)
+    const [state, setState] = useState(initialStateValues)
 
     const handleChange = e => {
         return setState({
@@ -50,15 +60,19 @@ export default function CharacterCreator(){
 
     return(
         <div className="character-creator-wrapper">
-            Char creator
+            <p>Points to spend: {state.points}</p>
             <form>
                 <label>player name: </label>
                 <input name="name" type="text" value={state.name} onChange={handleChange} required />
+                <div className="stat-setter-container">
+                    <h4 className="stat-setter-name">Attack</h4>
+                    <div className="button-container">
+                        <button name="atk" value={-1} onClick={spendPoints} >+</button>
+                        {state.atk + basePlayerStats.atk}
+                        <button name="atk" value={1} onClick={spendPoints} >-</button>
+                    </div>
+                </div>
             </form>
-            <button name="atk" value={-1} onClick={spendPoints} >increase</button>
-            {state.atk}
-            <button name="atk" value={1} onClick={spendPoints} >decrease</button><br />
-            {state.points}
         </div>
     )
 }
