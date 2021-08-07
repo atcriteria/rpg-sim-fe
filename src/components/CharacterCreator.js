@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AvatarSelector from './AvatarSelector';
 import validateName from '../util/validateName';
+import generateCharacter from '../util/generateCharacter';
 
 const initialStateValues = {
     name: "Player",
@@ -28,7 +29,7 @@ const basePlayerStats = {
     points: 0
 }
 
-export default function CharacterCreator(){
+export default function CharacterCreator({createCharacter}){
     const [state, setState] = useState(initialStateValues);
     const [isNameValid, setIsNameValid] = useState(false);
     const [disabled, setDisabled] = useState(true);
@@ -87,11 +88,17 @@ export default function CharacterCreator(){
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const character = generateCharacter(state)
+         return createCharacter(character)
+    } 
+
     return(
         <div className="character-creator-wrapper">
             <AvatarSelector selectImage={selectImage} />
             <p>Points to spend: {state.points}</p>
-            <form>
+            <form onSubmit={handleSubmit} >
                 <label>player name: </label>
                 <input name="name" type="text" value={state.name} onChange={handleChange} required />
                 <div className="stat-setter-container">
