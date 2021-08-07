@@ -3,6 +3,7 @@ import { useState } from 'react';
 const initialStateValues = {
     name: "Player",
     hp: 0,
+    sp: 0,
     atk: 0,
     def: 0,
     accuracy: 0,
@@ -14,6 +15,7 @@ const initialStateValues = {
 const basePlayerStats = {
     name: "",
     hp: 20,
+    sp: 5,
     atk: 5,
     def: 0,
     accuracy: 0,
@@ -65,11 +67,43 @@ export default function CharacterCreator(){
                 <label>player name: </label>
                 <input name="name" type="text" value={state.name} onChange={handleChange} required />
                 <div className="stat-setter-container">
+                    <h4 className="stat-setter-name">Hit Points</h4>
+                    <div className="button-container">
+                        <button name="hp" value={-1} onClick={spendPoints} >+</button>
+                        <p className="stat-level-container">{state.hp + basePlayerStats.hp}</p>
+                        <button name="hp" value={1} onClick={spendPoints} >-</button>
+                    </div>
+                </div>
+                <div className="stat-setter-container">
+                    <h4 className="stat-setter-name">Spell Points</h4>
+                    <div className="button-container">
+                        <button name="sp" value={-1} onClick={spendPoints} >+</button>
+                        <p className="stat-level-container">{state.sp + basePlayerStats.sp}</p>
+                        <button name="sp" value={1} onClick={spendPoints} >-</button>
+                    </div>
+                </div>
+                <div className="stat-setter-container">
                     <h4 className="stat-setter-name">Attack</h4>
                     <div className="button-container">
                         <button name="atk" value={-1} onClick={spendPoints} >+</button>
-                        {state.atk + basePlayerStats.atk}
+                        <p className="stat-level-container">{state.atk + basePlayerStats.atk}</p>
                         <button name="atk" value={1} onClick={spendPoints} >-</button>
+                    </div>
+                </div>
+                <div className="stat-setter-container">
+                    <h4 className="stat-setter-name">Defense</h4>
+                    <div className="button-container">
+                        <button name="def" value={-1} onClick={spendPoints} >+</button>
+                        <p className="stat-level-container">{state.def + basePlayerStats.def}</p>
+                        <button name="def" value={1} onClick={spendPoints} >-</button>
+                    </div>
+                </div>
+                <div className="stat-setter-container">
+                    <h4 className="stat-setter-name">Accuracy</h4>
+                    <div className="button-container">
+                        <button name="accuracy" value={-1} onClick={spendPoints} >+</button>
+                        <p className="stat-level-container">{state.accuracy + basePlayerStats.accuracy}</p>
+                        <button name="accuracy" value={1} onClick={spendPoints} >-</button>
                     </div>
                 </div>
             </form>
