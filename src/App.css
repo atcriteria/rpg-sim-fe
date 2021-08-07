@@ -60,7 +60,7 @@
 */
 .game-window-wrapper {
   width: 100%;
-  min-height: 60vh;
+  min-height: 680px;
   margin: auto;
   background-color: rgb(177, 219, 255);
 }
