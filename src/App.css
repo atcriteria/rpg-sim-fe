@@ -22,11 +22,9 @@
   background-color: cyan;
   width: 45%;
   margin: auto;
-  /* border: 1px solid black; */
 }
 .button-container{
   width: 45%;
-  /* border: 1px solid black; */
 }
 .button-container button {
   width: 15%;
@@ -55,4 +53,14 @@
 }
 .avatar-selector-image-container{
   margin: auto 2.5%;
+}
+
+/* 
+  The main Game Window styles
+*/
+.game-window-wrapper {
+  width: 100%;
+  min-height: 60vh;
+  margin: auto;
+  background-color: rgb(177, 219, 255);
 }
