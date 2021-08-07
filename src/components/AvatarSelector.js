@@ -2,7 +2,7 @@
 // creation that helps players cycle through
 // the base images
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import playerAvatars from '../util/playerAvatars';
 
 const initialValues = {
@@ -18,17 +18,37 @@ export default function AvatarSelector({selectImage}){
         let direction = e.target.name;
         let len = playerAvatars.length-1;
         if(direction === "left"){
+            let newPosition = (state.imagePosition-1)
             if(state.imagePosition === 0){
                 return setState({
                     imagePosition: len,
                     imagePath: playerAvatars[len]
                 });
+            } else {
+                return setState({
+                    imagePosition: newPosition,
+                    imagePath: playerAvatars[newPosition]
+                })
             }
         } else {
-
+            let newPosition = (state.imagePosition+1);
+            if(state.imagePosition === len){
+                return setState({
+                    imagePosition: 0,
+                    imagePath: playerAvatars[0]
+                })
+            } else {
+                return setState({
+                    imagePosition: newPosition,
+                    imagePath: playerAvatars[newPosition]
+                })
+            }
         }
     }
-    selectImage(state.imagePath)
+    
+    useEffect(()=> {
+        selectImage(state.imagePath)
+    }, [selectImage, state.imagePath])
 
     return(
         <div>

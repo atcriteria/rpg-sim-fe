@@ -4,6 +4,7 @@ import validateName from '../util/validateName';
 
 const initialStateValues = {
     name: "Player",
+    img: "",
     hp: 0,
     sp: 0,
     atk: 0,
@@ -75,7 +76,15 @@ export default function CharacterCreator(){
     }
 
     const selectImage = (imagePath) => {
-        console.log(imagePath)
+        let img = "img"
+        if (imagePath === state.img){
+            return
+        } else {
+            return setState({
+                ...state,
+                [img]: imagePath
+            });
+        }
     }
 
     return(
