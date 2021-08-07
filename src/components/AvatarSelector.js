@@ -51,10 +51,13 @@ export default function AvatarSelector({selectImage}){
     }, [selectImage, state.imagePath])
 
     return(
-        <div>
-            <button onClick={handleClick} name="left" >{`<<`}</button>
-            <img className="avatar-selector" name={state.imagePath} src={state.imagePath} alt="Player Portrait" />
-            <button onClick={handleClick} name="right" >{`>>`}</button>
+        <div className="avatar-selector-main-wrapper">
+            <div className="avatar-selector-wrapper">
+                <button onClick={handleClick} name="left" >{`<<`}</button>
+                <img className="avatar-selector" name={state.imagePath} src={state.imagePath} alt="Player Portrait" />
+                <button onClick={handleClick} name="right" >{`>>`}</button>
+            </div>
+            <p>Avatar-{state.imagePosition+1}</p>
         </div>
     )
 }
