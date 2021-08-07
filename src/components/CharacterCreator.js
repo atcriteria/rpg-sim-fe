@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import AvatarSelector from './AvatarSelector';
 import validateName from '../util/validateName';
 
 const initialStateValues = {
@@ -73,8 +74,14 @@ export default function CharacterCreator(){
         }
     }
 
+    const selectImage = (e) => {
+        e.preventDefault();
+        console.log(e.target.name)
+    }
+
     return(
         <div className="character-creator-wrapper">
+            <AvatarSelector selectImage={selectImage} />
             <p>Points to spend: {state.points}</p>
             <form>
                 <label>player name: </label>
