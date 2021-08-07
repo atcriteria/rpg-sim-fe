@@ -3,9 +3,9 @@ The Front End for an RPG Simulator based on a previous project of mine.
 
 ## Goals
 Below are a few key features I am aiming to implement.
-- Create a custom character
-- - Allot points into various stats
-- - Select a prebuilt character sprite
+- Create a custom character (done)
+- - Allot points into various stats (done)
+- - Select a prebuilt character sprite (done)
 - Search for monsters appropriate to the player level to battle with
 - - Try to have at least 4 unique monsters per range
 - - Add random loot for successful battles
