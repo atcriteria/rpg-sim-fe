@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import validateName from '../util/validateName';
 
 const initialStateValues = {
     name: "Player",
@@ -26,7 +27,19 @@ const basePlayerStats = {
 }
 
 export default function CharacterCreator(){
-    const [state, setState] = useState(initialStateValues)
+    const [state, setState] = useState(initialStateValues);
+    const [isNameValid, setIsNameValid] = useState(false);
+    const [disabled, setDisabled] = useState(true);
+
+    useEffect(() => {
+        setIsNameValid(validateName(state.name))
+        if(state.points === 0 && isNameValid){
+            setDisabled(false)
+        } else {
+            setDisabled(true)
+        }
+    }, [state.points, isNameValid, state.name])
+
 
     const handleChange = e => {
         return setState({
@@ -106,6 +119,7 @@ export default function CharacterCreator(){
                         <button name="accuracy" value={1} onClick={spendPoints} >-</button>
                     </div>
                 </div>
+                <button type="submit" disabled={disabled} >Create Character</button>
             </form>
         </div>
     )
