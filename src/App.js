@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import CharacterCreator from './components/CharacterCreator';
 import GameWindow from './components/GameWindow';
 
