@@ -74,9 +74,8 @@ export default function CharacterCreator(){
         }
     }
 
-    const selectImage = (e) => {
-        e.preventDefault();
-        console.log(e.target.name)
+    const selectImage = (imagePath) => {
+        console.log(imagePath)
     }
 
     return(
