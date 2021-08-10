@@ -36,3 +36,5 @@ let weakMonsters = [
         xp: 20
     },
 ];
+
+export default weakMonsters;
