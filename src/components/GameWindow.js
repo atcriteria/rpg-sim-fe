@@ -2,10 +2,12 @@
 // This component will house most of the sub-components
 // that players will interact with.
 
+import Menu from './Menu';
+
 export default function GameWindow(){
     return(
         <div className="game-window-wrapper" >
-            The Game
+            <Menu />
         </div>
     )
 }
