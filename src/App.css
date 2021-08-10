@@ -64,3 +64,29 @@
   margin: auto;
   background-color: rgb(177, 219, 255);
 }
+
+/* 
+  Main Menu Styles
+*/
+.main-menu-nav{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aqua;
+}
+.menu-nav-button{
+  width: 100%;
+  height: 100%;
+  background-color: yellowgreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.menu-nav-button:hover{
+  cursor: pointer;
+  background-color: yellow;
+}
