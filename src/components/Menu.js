@@ -1,6 +1,7 @@
 // The main menu displayed in the
 // GameWindow component.
-export default function Menu(){
+
+export default function Menu({setWindow}){
     return(
         <div>
             <nav className="main-menu-nav">
