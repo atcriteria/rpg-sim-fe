@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       the app
-      {(!state.char) ? <CharacterCreator createCharacter={createCharacter} /> : <GameWindow />}
+      {(!state.char) ? <CharacterCreator createCharacter={createCharacter} /> : <GameWindow player={state.char}/>}
     </div>
   );
 }

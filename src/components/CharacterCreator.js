@@ -91,7 +91,8 @@ export default function CharacterCreator({createCharacter}){
     const handleSubmit = (e) => {
         e.preventDefault()
         const character = generateCharacter(state)
-         return createCharacter(character)
+        console.log(character)
+        return createCharacter(character)
     } 
 
     return(

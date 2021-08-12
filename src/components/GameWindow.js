@@ -7,12 +7,12 @@ import {useState} from 'react';
 import ScreenCombat from './ScreenCombat';
 import ScreenInventory from './ScreenInventory'
 
-export default function GameWindow(){
+export default function GameWindow({player}){
     const [window, setWindow] = useState("inventory")
     const getScreen = () => {
         switch(window){
         case "combat":
-            return <ScreenCombat />
+            return <ScreenCombat player={player} />
         case "inventory":
             return <ScreenInventory />
         default:

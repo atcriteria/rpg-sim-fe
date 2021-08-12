@@ -1,10 +1,14 @@
 // the main combat component rendered
 // inside the GameWindow component
 
-export default function ScreenCombat(){
+// import {useState} from 'react';
+import CharacterCard from './CharacterCard';
+
+export default function ScreenCombat({player}){
+
     return(
         <div className="combat-screen-wrapper">
-            Combat Screen
+            <CharacterCard character={player} />
         </div>
     )
 }

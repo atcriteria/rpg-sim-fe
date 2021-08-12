@@ -7,7 +7,9 @@
 export default function generateCharacter(character){
     const newCharacter = {
         name: character.name,
+        img: character.img,
         hp: 20 + character.hp,
+        maxHP: 20 + character.hp,
         sp: 5 + character.sp,
         atk: 5 + character.atk,
         def: 0 + character.def,
