@@ -18,9 +18,12 @@ export default function GameWindow(){
         default:
         }
     }
+    const updateScreen = (screen) => {
+        return setWindow(screen)
+    }
     return(
         <div className="game-window-wrapper" >
-            <Menu />
+            <Menu updateScreen={updateScreen} />
             {
                 getScreen()
             }

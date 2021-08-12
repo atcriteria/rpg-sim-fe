@@ -1,15 +1,21 @@
 // The main menu displayed in the
 // GameWindow component.
 
-export default function Menu({setWindow}){
+export default function Menu({updateScreen}){
+
+    const handleClick = e => {
+        e.preventDefault();
+        updateScreen(e.target.name)
+    }
+
     return(
         <div>
             <nav className="main-menu-nav">
-                <div className="menu-nav-button" >Button</div>
-                <div className="menu-nav-button" >Button</div>
-                <div className="menu-nav-button" >Button</div>
-                <div className="menu-nav-button" >Button</div>
-                <div className="menu-nav-button" >Button</div>
+                <button className="menu-nav-button" name="combat" onClick={handleClick} >Battle</button>
+                <button className="menu-nav-button" name="inventory" onClick={handleClick} >Inventory</button>
+                <button className="menu-nav-button" >Button</button>
+                <button className="menu-nav-button" >Button</button>
+                <button className="menu-nav-button" >Button</button>
             </nav>
         </div>
     )
