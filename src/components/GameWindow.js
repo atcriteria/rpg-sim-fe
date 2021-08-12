@@ -2,7 +2,7 @@
 // This component will house most of the sub-components
 // that players will interact with.
 
-import Menu from './Menu';
+import Menu from './Menu/Menu';
 import {useState} from 'react';
 import ScreenCombat from './ScreenCombat';
 import ScreenInventory from './ScreenInventory'

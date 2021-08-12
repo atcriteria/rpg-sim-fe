@@ -1,0 +1,20 @@
+.avatar-selector-main-wrapper{
+    width: 50%;
+    margin: auto;
+  }
+  .avatar-selector-main-wrapper p{
+    margin: 0;
+  }
+  .avatar-selector-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatar-selector {
+    margin: auto 2.5%;
+    border: 2px solid black;
+  }
+  .avatar-selector-image-container{
+    margin: auto 2.5%;
+  }

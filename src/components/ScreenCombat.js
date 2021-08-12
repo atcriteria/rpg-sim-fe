@@ -2,7 +2,7 @@
 // inside the GameWindow component
 
 // import {useState} from 'react';
-import CharacterCard from './CharacterCard';
+import CharacterCard from './CharacterCard/CharacterCard';
 
 export default function ScreenCombat({player}){
 

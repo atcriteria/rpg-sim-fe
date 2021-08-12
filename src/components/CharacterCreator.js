@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import AvatarSelector from './AvatarSelector';
+import AvatarSelector from './AvatarSelector/AvatarSelector';
 import validateName from '../util/validateName';
 import generateCharacter from '../util/generateCharacter';
 

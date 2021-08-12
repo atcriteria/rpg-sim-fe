@@ -3,7 +3,8 @@
 // the base images
 
 import {useState, useEffect} from 'react';
-import playerAvatars from '../util/playerAvatars';
+import playerAvatars from '../../util/playerAvatars';
+import './AvatarSelector.css';
 
 const initialValues = {
     imagePosition: 0,

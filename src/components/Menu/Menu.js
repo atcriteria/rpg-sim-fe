@@ -1,5 +1,6 @@
 // The main menu displayed in the
 // GameWindow component.
+import './Menu.css';
 
 export default function Menu({updateScreen}){
 
