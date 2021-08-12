@@ -3,7 +3,7 @@
 
 export default function ScreenCombat(){
     return(
-        <div>
+        <div className="combat-screen-wrapper">
             Combat Screen
         </div>
     )

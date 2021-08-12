@@ -90,3 +90,12 @@
   cursor: pointer;
   background-color: yellow;
 }
+
+/* 
+  Combat Screen Styles
+*/
+.combat-screen-wrapper {
+  background-color: blueviolet;
+  width: 100%;
+  height: 640px;
+}
