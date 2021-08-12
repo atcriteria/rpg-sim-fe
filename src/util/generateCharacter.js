@@ -11,6 +11,7 @@ export default function generateCharacter(character){
         hp: 20 + character.hp,
         maxHP: 20 + character.hp,
         sp: 5 + character.sp,
+        maxSP: 5+character.sp,
         atk: 5 + character.atk,
         def: 0 + character.def,
         accuracy: 0 + character.accuracy,
