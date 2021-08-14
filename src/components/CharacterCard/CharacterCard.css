@@ -2,3 +2,6 @@
     width: 25%;
     background-color: rgb(176, 127, 255);
 }
+.character-card-wrapper h2 {
+    margin: 0;
+}
