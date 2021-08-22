@@ -8,6 +8,7 @@ let weakMonsters = [
     {
         name: "monster",
         img: "image/path/here",
+        level: 1,
         hp: 20,
         atk: 2,
         def: 2,
@@ -19,24 +20,26 @@ let weakMonsters = [
     {
         name: "monster2",
         img: "image/path/here",
-        hp: 20,
-        atk: 2,
+        level: 2,
+        hp: 25,
+        atk: 3,
         def: 2,
         "sp-atk": 0,
         "sp-def": 0,
         accuracy: 2,
-        xp: 20
+        xp: 25
     },
     {
         name: "monster3",
         img: "image/path/here",
-        hp: 20,
-        atk: 2,
+        level: 3,
+        hp: 30,
+        atk: 4,
         def: 2,
         "sp-atk": 0,
         "sp-def": 0,
         accuracy: 2,
-        xp: 20
+        xp: 30
     },
 ];
 
