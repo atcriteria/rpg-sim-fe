@@ -1,5 +1,8 @@
 // The master list of monsters
 // Organized by level group
+// Pass: player level
+// Return: list of monsters appropriate
+// ..with player level
 
 let weakMonsters = [
     {
@@ -37,4 +40,11 @@ let weakMonsters = [
     },
 ];
 
-export default weakMonsters;
+export default function monsterList(level){
+    switch(level){
+        case (level<=10):
+            return weakMonsters
+        default:
+            return weakMonsters
+    }
+};

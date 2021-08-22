@@ -7,16 +7,15 @@
 // from the master list of enemies. just a 
 // temp function for proof of concept.
 
-import enemies from '../util/enemies.js';
+import monsterList from './enemies.js';
 
 export default function monsterFinder(player){
     let level = player.level;
 
-    // Find monsters between -3 and +3 levels
-    // of the player. These are static vars
-    // so they can be toggled for balance
-    let levelFloor = Math.max(0, level-3);
+    // Find monsters up to +3 levels higher
+    // than the player.
     let levelCeil = level+3;
-    let monsterValue = Math.ceil(Math.random()*level+levelCeil)
-    console.log(monsterValue)
+    let adjustedLevel = Math.max(Math.floor(Math.random()*(level+levelCeil)),1)
+    let monsters = monsterList(adjustedLevel)
+    console.log(monsters)
 }

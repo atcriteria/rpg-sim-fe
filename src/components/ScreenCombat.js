@@ -7,10 +7,15 @@ import monsterFinder from '../util/combat/monsterFinder';
 
 export default function ScreenCombat({player}){
 
+    const findMonster = e => {
+        e.preventDefault();
+        monsterFinder(player)
+    }
+
     return(
         <div className="combat-screen-wrapper">
             <CharacterCard character={player} />
-            <button onClick={monsterFinder(player)}>Find Monster</button>
+            <button onClick={findMonster}>Find Monster</button>
         </div>
     )
 }
