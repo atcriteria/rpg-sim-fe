@@ -16,6 +16,8 @@ export default function monsterFinder(player){
     // than the player.
     let levelCeil = level+3;
     let adjustedLevel = Math.max(Math.floor(Math.random()*(level+levelCeil)),1)
-    let monsters = monsterList(adjustedLevel)
-    console.log(monsters)
+    let enemies = monsterList(adjustedLevel)
+    // Grab a random monster from the list of monsters we received
+    let monster = enemies[Math.floor(Math.random()*enemies.length)]
+    return monster
 }
