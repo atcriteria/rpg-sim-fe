@@ -4,17 +4,26 @@
 // import {useState} from 'react';
 import CharacterCard from './CharacterCard/CharacterCard';
 import monsterFinder from '../util/combat/monsterFinder';
+import { useState } from 'react';
 
 export default function ScreenCombat({player}){
+    const [monster, setMonster] = useState(null)
 
     const findMonster = e => {
         e.preventDefault();
-        monsterFinder(player)
+        let mon = monsterFinder(player)
+        setMonster(mon)
     }
 
     return(
         <div className="combat-screen-wrapper">
-            <CharacterCard character={player} />
+            <div className="character-wrapper">
+                <CharacterCard character={player} />
+                {
+                    (!monster) ? "" :
+                    <CharacterCard character={monster} />
+                }
+            </div>
             <button onClick={findMonster}>Find Monster</button>
         </div>
     )
