@@ -26,7 +26,6 @@ function App() {
       return alert("There was an error in submitting your character\nPlease try again")
     }
   }
-  console.log(state)
 
   return (
     <div className="App">
