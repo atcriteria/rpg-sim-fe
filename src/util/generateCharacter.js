@@ -4,21 +4,25 @@
 // may change later and become more complex so
 // we're offloading this here
 
-export default function generateCharacter(character){
-    const newCharacter = {
-        name: character.name,
-        img: character.img,
-        level: 1,
-        hp: 20 + character.hp,
-        maxHP: 20 + character.hp,
-        sp: 5 + character.sp,
-        maxSP: 5+character.sp,
-        atk: 5 + character.atk,
-        def: 0 + character.def,
-        accuracy: 0 + character.accuracy,
-        "sp-atk": 0,
-        "sp-def": 0,
-        xp: 0,
+class Character {
+    constructor(character){
+        this.name = character.name;
+        this.img = character.img;
+        this.level = 1;
+        this.hp = 20 + character.hp;
+        this.maxHP = 20 + character.hp;
+        this.sp = 5 + character.sp;
+        this.maxSP = 5+character.sp;
+        this.atk = 5 + character.atk;
+        this.def = 0 + character.def;
+        this.accuracy = 0 + character.accuracy;
+        this["sp-atk"] = 0;
+        this["sp-def"] = 0;
+        this.xp = 0;
     }
-    return newCharacter
+};
+
+export default function generateCharacter(character){
+    const char = new Character(character)
+    return char
 }
