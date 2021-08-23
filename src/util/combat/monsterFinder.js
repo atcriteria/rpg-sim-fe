@@ -8,6 +8,7 @@
 // temp function for proof of concept.
 
 import monsterList from './enemies.js';
+import Character from '../characters';
 
 export default function monsterFinder(player){
     let level = player.level;
@@ -19,5 +20,5 @@ export default function monsterFinder(player){
     let enemies = monsterList(adjustedLevel)
     // Grab a random monster from the list of monsters we received
     let monster = enemies[Math.floor(Math.random()*enemies.length)]
-    return monster
+    return new Character(monster)
 }

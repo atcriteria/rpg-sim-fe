@@ -8,22 +8,31 @@
 export default function combat(player, monster){
     let plevel = player.level;
     let mlevel = monster.level;
+    let patk = player.atk
+    let matk = monster.atk;
 
     // If player is higher level, they go first
     if (plevel >= mlevel){
-        let patk = player.atk
         monster.takeDamage(patk)
         // If we killed the monster
         if(!monster.isAlive()){
             player.gainXP(monster);
         }
-        let matk = monster.atk;
         player.takeDamage(matk);
         // If the player died
         if(!player.isAlive()){
             player.kill();
         }
     } else {
-
+        player.takeDamage(matk);
+        // If the player died
+        if(!player.isAlive()){
+            player.kill();
+        }
+        monster.takeDamage(patk)
+        // If we killed the monster
+        if(!monster.isAlive()){
+            player.gainXP(monster);
+        }
     }
 }
