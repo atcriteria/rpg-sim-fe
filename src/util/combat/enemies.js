@@ -4,12 +4,18 @@
 // Return: list of monsters appropriate
 // ..with player level
 
+// Upload images to public/images/monsters/
+// Then access with:
+// ${origin}/images/monsters/monster-img
+const origin = window.location.origin
+
 let weakMonsters = [
     {
         name: "monster",
-        img: "image/path/here",
+        img: `${origin}/images/monsters/caterpillar.png`,
         level: 1,
         hp: 20,
+        maxHP: 20,
         atk: 2,
         def: 2,
         "sp-atk": 0,
@@ -19,9 +25,10 @@ let weakMonsters = [
     },
     {
         name: "monster2",
-        img: "image/path/here",
+        img: `${origin}/images/monsters/crab.png`,
         level: 2,
         hp: 25,
+        maxHP: 25,
         atk: 3,
         def: 2,
         "sp-atk": 0,
@@ -31,9 +38,10 @@ let weakMonsters = [
     },
     {
         name: "monster3",
-        img: "image/path/here",
+        img: `${origin}/images/monsters/goo.png`,
         level: 3,
         hp: 30,
+        maxHP: 30,
         atk: 4,
         def: 2,
         "sp-atk": 0,
