@@ -1,5 +1,6 @@
 .character-card-wrapper{
-    width: 25%;
+    width: 35%;
+    margin: auto 2.5% auto 2.5%;
     background-color: rgb(176, 127, 255);
 }
 .character-card-wrapper h2 {
