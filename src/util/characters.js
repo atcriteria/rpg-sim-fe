@@ -3,23 +3,27 @@
 // any other creature that can be attacked.
 
 const MAX_XP_LOSS = .75;
+const BASE_PLAYER_HP = 20
+const BASE_PLAYER_SP = 5
+const BASE_PLAYER_ATK = 5
+const BASE_PLAYER_DEF = 0
 
 export default class Character {
     constructor(character){
         this.name = character.name;
         this.player = (character.player) ? true: false;
         this.img = character.img;
-        this.level = 1;
-        this.hp = 20 + character.hp;
-        this.maxHP = 20 + character.hp;
-        this.sp = 5 + character.sp;
-        this.maxSP = 5+character.sp;
-        this.atk = 5 + character.atk;
-        this.def = 0 + character.def;
-        this.accuracy = 0 + character.accuracy;
-        this["sp-atk"] = 0;
-        this["sp-def"] = 0;
-        this.xp = 0;
+        this.level = (character.player) ? 1 : character.level;
+        this.hp = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
+        this.maxHP = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
+        this.sp = (character.player) ? BASE_PLAYER_SP + character.sp : character.sp;
+        this.maxSP = (character.player) ? BASE_PLAYER_SP + character.sp : character.sp;
+        this.atk = (character.player) ? BASE_PLAYER_ATK + character.atk : character.atk;
+        this.def = (character.player) ? BASE_PLAYER_DEF + character.def : character.def;
+        this.accuracy = (character.player) ? 0 + character.accuracy : character.accuracy;
+        this["sp-atk"] = (character.player) ? 0 + character["sp-atk"] : character["sp-atk"] ;
+        this["sp-def"] = (character.player) ? 0 + character["sp-def"] : character["sp-def"];
+        this.xp = character.xp;
     }
     // Returns true if we are a player
     // Returns false is we are not a player
