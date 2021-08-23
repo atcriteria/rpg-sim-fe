@@ -5,27 +5,20 @@
 import CharacterCard from './CharacterCard/CharacterCard';
 import monsterFinder from '../util/combat/monsterFinder';
 import combat from '../util/combat/combat';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ScreenCombat({player}){
     const [monster, setMonster] = useState(null)
-    console.log("bleghh")
-    useEffect(() => {
-        console.log(monster)
-    }, [monster])
 
     const findMonster = e => {
         e.preventDefault();
-        console.log(player)
         let mon = monsterFinder(player)
         setMonster(mon)
     }
     const handleAttack = e => {
         e.preventDefault();
         const combatEvent = combat(player, monster);
-        console.log(combatEvent)
         if (!combatEvent.isAlive()){
-            console.log("It isnt alive...")
             return setMonster(null)
         }
         return setMonster(combatEvent)
@@ -34,10 +27,10 @@ export default function ScreenCombat({player}){
     return(
         <div className="combat-screen-wrapper">
             <div className="character-wrapper">
-                <CharacterCard character={player} />
+                <CharacterCard character={player} key={player.name} />
                 {
                     (!monster) ? "" :
-                    <CharacterCard character={monster} />
+                    <CharacterCard character={monster} key={monster.name} />
                 }
             </div>
             {

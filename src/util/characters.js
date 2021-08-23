@@ -108,7 +108,6 @@ export default class Character {
         if (damage < armorValue){
             return
         } else {
-            console.log(damage, armorValue, this.def)
             this.hp = this.hp - (damage-armorValue);
             return;
         }
