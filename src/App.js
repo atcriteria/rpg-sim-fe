@@ -17,6 +17,7 @@ function App() {
   const createCharacter = (player) => {
     const isValidCharacter = submitPlayer(player);
     if (isValidCharacter){
+      window.localStorage.setItem("player", JSON.stringify(player))
       const p = "player";
       return setState({
         ...state,

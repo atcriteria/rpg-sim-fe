@@ -17,7 +17,7 @@ export default function combat(player, monster){
         p.gainXP(mon);
         return mon
     }
-    player.takeDamage(matk);
+    p.takeDamage(matk);
     // If the player died
     if(!p.isAlive()){
         p.kill();

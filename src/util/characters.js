@@ -5,10 +5,6 @@
 import submitPlayer from './submitPlayer';
 
 const MAX_XP_LOSS = .75;
-const BASE_PLAYER_HP = 20
-const BASE_PLAYER_SP = 5
-const BASE_PLAYER_ATK = 5
-const BASE_PLAYER_DEF = 0
 
 export default class Character {
     constructor(character){
@@ -16,15 +12,15 @@ export default class Character {
         this.player = (character.player) ? true: false;
         this.img = character.img;
         this.level = character.level;
-        this.hp = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
-        this.maxHP = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
-        this.sp = (character.player) ? BASE_PLAYER_SP + character.sp : character.sp;
-        this.maxSP = (character.player) ? BASE_PLAYER_SP + character.sp : character.sp;
-        this.atk = (character.player) ? BASE_PLAYER_ATK + character.atk : character.atk;
-        this.def = (character.player) ? BASE_PLAYER_DEF + character.def : character.def;
-        this.accuracy = (character.player) ? 0 + character.accuracy : character.accuracy;
-        this["sp-atk"] = (character.player) ? 0 + character["sp-atk"] : character["sp-atk"] ;
-        this["sp-def"] = (character.player) ? 0 + character["sp-def"] : character["sp-def"];
+        this.hp = character.hp;
+        this.maxHP = character.maxHP;
+        this.sp = character.sp;
+        this.maxSP = character.maxSP;
+        this.atk = character.atk;
+        this.def = character.def;
+        this.accuracy = character.accuracy;
+        this["sp-atk"] = character["sp-atk"] ;
+        this["sp-def"] = character["sp-def"];
         this.xp = character.xp;
     }
     // Returns true if we are a player

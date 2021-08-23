@@ -16,6 +16,7 @@ export default function ScreenCombat({player}){
 
     const findMonster = e => {
         e.preventDefault();
+        console.log(player)
         let mon = monsterFinder(player)
         setMonster(mon)
     }

@@ -92,7 +92,24 @@ export default function PlayerCreator({createCharacter}){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const player = generatePlayer(state)
+        // combine the base stats with the adjusted stats
+        const p = {
+            name: basePlayerStats.name+state.name,
+            player: true,
+            img: state.img,
+            level: 1,
+            hp: basePlayerStats.hp+state.hp,
+            maxHP: basePlayerStats.hp+state.hp,
+            sp: basePlayerStats.sp+state.sp,
+            maxSP: basePlayerStats.sp+state.sp,
+            atk: basePlayerStats.atk+state.atk,
+            def: basePlayerStats.def+state.def,
+            accuracy: basePlayerStats.accuracy+state.accuracy,
+            "sp-atk": basePlayerStats["sp-atk"]+state["sp-atk"],
+            "sp-def": basePlayerStats["sp-def"]+state["sp-def"],
+            xp: 0
+        }
+        const player = generatePlayer(p)
         console.log(player)
         return createCharacter(player)
     } 

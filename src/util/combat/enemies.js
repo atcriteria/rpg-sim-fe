@@ -10,11 +10,11 @@
 const origin = window.location.origin
 
 export default function monsterList(level){
-    if (level <= 15){
-        return medMonsters
-    }
     if (level <=5){
         return weakMonsters
+    }
+    if (level <= 15){
+        return medMonsters
     }
     return weakMonsters
 };
