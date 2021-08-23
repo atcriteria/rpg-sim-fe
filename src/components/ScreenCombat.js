@@ -14,6 +14,9 @@ export default function ScreenCombat({player}){
         let mon = monsterFinder(player)
         setMonster(mon)
     }
+    const handleAttack = e => {
+        e.preventDefault();
+    }
 
     return(
         <div className="combat-screen-wrapper">
@@ -24,7 +27,11 @@ export default function ScreenCombat({player}){
                     <CharacterCard character={monster} />
                 }
             </div>
-            <button onClick={findMonster}>Find Monster</button>
+            {
+                (!monster) ?
+                <button onClick={findMonster}>Find Monster</button> :
+                <button onClick={handleAttack}>Attack!</button>
+            }
         </div>
     )
 }
