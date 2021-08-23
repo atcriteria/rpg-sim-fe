@@ -2,12 +2,13 @@ import './App.css';
 import {useState} from 'react';
 import PlayerCreator from './components/PlayerCreator';
 import GameWindow from './components/GameWindow';
+import Character from './util/characters';
 
 import submitPlayer from './util/submitPlayer';
 
 let localPlayer = JSON.parse(window.localStorage.getItem("player")) || false
 const initialValues = {
-  player: localPlayer
+  player: (localPlayer) ? new Character(localPlayer) : localPlayer
 }
 
 function App() {
