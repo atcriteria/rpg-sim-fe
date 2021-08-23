@@ -2,6 +2,8 @@
 // These encompass players as well as monsters and 
 // any other creature that can be attacked.
 
+import submitPlayer from './submitPlayer';
+
 const MAX_XP_LOSS = .75;
 const BASE_PLAYER_HP = 20
 const BASE_PLAYER_SP = 5
@@ -13,7 +15,7 @@ export default class Character {
         this.name = character.name;
         this.player = (character.player) ? true: false;
         this.img = character.img;
-        this.level = (character.player) ? 1 : character.level;
+        this.level = character.level;
         this.hp = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
         this.maxHP = (character.player) ? BASE_PLAYER_HP + character.hp : character.hp;
         this.sp = (character.player) ? BASE_PLAYER_SP + character.sp : character.sp;
@@ -34,6 +36,16 @@ export default class Character {
             return false
         }
     }
+    // Saves the player object to local storage
+    save(){
+        console.log("calling save")
+        // don't save if we arent a player
+        if (!this.isPlayer){
+            return
+        } else {
+            submitPlayer(this)
+        }
+    }
     // Check if we are alive or not
     isAlive(){
         if (this.hp > 0){
@@ -51,6 +63,8 @@ export default class Character {
         if (this.xp >= 100){
             this.levelUp();
         }
+        this.save();
+        return;
     }
     levelUp(){
         // If we aren't a player, don't bother
@@ -66,12 +80,15 @@ export default class Character {
         this.def += 0;
         this.accuracy += 0;
         this.xp = 0;
+        console.log("leveled up")
+        this.save();
         return;
     }
     // Kills a player character
     kill(){
         // Sanity check
-        if (this.isPlayer()){
+        if (!this.isPlayer()){
+            console.log(`You killed a ${this.name}`)
             return
         }
         this.refreshStats();
@@ -90,11 +107,12 @@ export default class Character {
     // Pass int damage value
     takeDamage(damage){
         // Pick a random amount between 0 and the chars armor level
-        let armorValue = Math.round(Math.random*this.def);
+        let armorValue = Math.round(Math.random()*this.def);
         // If we our damage is lower than the armor score, return
         if (damage < armorValue){
             return
         } else {
+            console.log(damage, armorValue, this.def)
             this.hp = this.hp - (damage-armorValue);
             return;
         }
