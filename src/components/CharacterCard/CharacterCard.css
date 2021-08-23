@@ -3,6 +3,10 @@
     margin: auto 2.5% auto 2.5%;
     background-color: rgb(176, 127, 255);
 }
+.character-card-wrapper img {
+    max-width: 96px;
+    max-height: 96px;
+}
 .character-card-wrapper h2 {
     margin: 0;
 }
