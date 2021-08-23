@@ -29,7 +29,7 @@ const basePlayerStats = {
     points: 0
 }
 
-export default function CharacterCreator({createCharacter}){
+export default function PlayerCreator({createCharacter}){
     const [state, setState] = useState(initialStateValues);
     const [isNameValid, setIsNameValid] = useState(false);
     const [disabled, setDisabled] = useState(true);
@@ -90,9 +90,9 @@ export default function CharacterCreator({createCharacter}){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const character = generatePlayer(state)
-        console.log(character)
-        return createCharacter(character)
+        const player = generatePlayer(state)
+        console.log(player)
+        return createCharacter(player)
     } 
 
     return(

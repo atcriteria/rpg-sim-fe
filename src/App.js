@@ -1,26 +1,25 @@
 import './App.css';
 import {useState} from 'react';
-import CharacterCreator from './components/CharacterCreator';
+import PlayerCreator from './components/PlayerCreator';
 import GameWindow from './components/GameWindow';
 
-import submitCharacter from './util/submitCharacter';
+import submitPlayer from './util/submitPlayer';
 
-let localChar = JSON.parse(window.localStorage.getItem("player")) || false
+let localPlayer = JSON.parse(window.localStorage.getItem("player")) || false
 const initialValues = {
-  char: localChar
+  player: localPlayer
 }
 
 function App() {
   const [state, setState] = useState(initialValues)
 
-  const createCharacter = (character) => {
-    const isValidCharacter = submitCharacter(character);
+  const createCharacter = (player) => {
+    const isValidCharacter = submitPlayer(player);
     if (isValidCharacter){
-      console.log(character)
-      const char = "char";
+      const p = "player";
       return setState({
         ...state,
-        [char]: character
+        [p]: player
       })
     } else {
       return alert("There was an error in submitting your character\nPlease try again")
@@ -30,7 +29,7 @@ function App() {
   return (
     <div className="App">
       the app
-      {(!state.char) ? <CharacterCreator createCharacter={createCharacter} /> : <GameWindow player={state.char}/>}
+      {(!state.player) ? <PlayerCreator createCharacter={createCharacter} /> : <GameWindow player={state.player}/>}
     </div>
   );
 }

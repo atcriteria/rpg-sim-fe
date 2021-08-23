@@ -9,9 +9,9 @@
 // and return true, otherwise we return false. In the
 // future this will likely make an API call so users
 // cannot easily hack their characters.
-export default function submitCharacter(character){
-    if(character){
-        window.localStorage.setItem("player", JSON.stringify(character))
+export default function submitPlayer(player){
+    if(player){
+        window.localStorage.setItem("player", JSON.stringify(player))
         return true
     } else {
         return false
