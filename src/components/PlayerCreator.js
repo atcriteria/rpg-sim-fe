@@ -5,6 +5,7 @@ import generatePlayer from '../util/generatePlayer';
 
 const initialStateValues = {
     name: "Player",
+    player: true,
     img: "",
     hp: 0,
     sp: 0,
@@ -18,6 +19,7 @@ const initialStateValues = {
 }
 const basePlayerStats = {
     name: "",
+    player: true,
     hp: 20,
     sp: 5,
     atk: 5,
