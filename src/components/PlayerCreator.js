@@ -96,7 +96,7 @@ export default function PlayerCreator({createCharacter}){
     } 
 
     return(
-        <div className="character-creator-wrapper">
+        <div className="player-creator-wrapper">
             <AvatarSelector selectImage={selectImage} />
             <p>Points to spend: {state.points}</p>
             <form onSubmit={handleSubmit} >
