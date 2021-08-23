@@ -5,7 +5,7 @@
 // we're offloading this here
 import Character from './characters';
 
-export default function generateCharacter(character){
+export default function generatePlayer(character){
     const char = new Character(character)
     return char
 }

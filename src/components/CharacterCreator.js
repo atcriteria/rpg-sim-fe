@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AvatarSelector from './AvatarSelector/AvatarSelector';
 import validateName from '../util/validateName';
-import generateCharacter from '../util/generateCharacter';
+import generatePlayer from '../util/generatePlayer';
 
 const initialStateValues = {
     name: "Player",
@@ -90,7 +90,7 @@ export default function CharacterCreator({createCharacter}){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const character = generateCharacter(state)
+        const character = generatePlayer(state)
         console.log(character)
         return createCharacter(character)
     } 
