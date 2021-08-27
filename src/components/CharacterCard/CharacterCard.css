@@ -13,3 +13,6 @@
 .character-card-wrapper h2 {
     margin: 0;
 }
+.character-card-wrapper h3{
+    font-size: .75rem;
+}
