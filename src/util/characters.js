@@ -22,6 +22,7 @@ export default class Character {
         this["sp-atk"] = character["sp-atk"] ;
         this["sp-def"] = character["sp-def"];
         this.xp = character.xp;
+        this.tnl = character.tnl;
     }
     // Returns true if we are a player
     // Returns false is we are not a player

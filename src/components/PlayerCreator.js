@@ -107,7 +107,8 @@ export default function PlayerCreator({createCharacter}){
             accuracy: basePlayerStats.accuracy+state.accuracy,
             "sp-atk": basePlayerStats["sp-atk"]+state["sp-atk"],
             "sp-def": basePlayerStats["sp-def"]+state["sp-def"],
-            xp: 0
+            xp: 0,
+            tnl: 100
         }
         const player = generatePlayer(p)
         console.log(player)
