@@ -5,11 +5,11 @@
 import CharacterCard from './CharacterCard/CharacterCard';
 import monsterFinder from '../util/combat/monsterFinder';
 import combat from '../util/combat/combat';
+import Character from '../util/characters';
 import { useState } from 'react';
 
 export default function ScreenCombat({player}){
     const [monster, setMonster] = useState(null)
-
     const findMonster = e => {
         e.preventDefault();
         let mon = monsterFinder(player)
@@ -21,7 +21,7 @@ export default function ScreenCombat({player}){
         if (!combatEvent.isAlive()){
             return setMonster(null)
         }
-        return setMonster(combatEvent)
+        return setMonster((combatEvent) => {return new Character(combatEvent)})
     }
 
     return(
