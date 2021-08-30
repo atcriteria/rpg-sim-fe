@@ -5,6 +5,17 @@
 import submitPlayer from './submitPlayer';
 
 const MAX_XP_LOSS = .75;
+const BASE_TNL_INCREASE = 10;
+
+// Pass character level
+// Return TNL
+const determineTNL = (level) => {
+    if (level === 1){
+        return 100
+    } else {
+        return 100 + (level * BASE_TNL_INCREASE);
+    }
+}
 
 export default class Character {
     constructor(character){
@@ -22,7 +33,7 @@ export default class Character {
         this["sp-atk"] = character["sp-atk"] ;
         this["sp-def"] = character["sp-def"];
         this.xp = character.xp;
-        this.tnl = character.tnl;
+        this.tnl = determineTNL(character.level);
     }
     // Returns true if we are a player
     // Returns false is we are not a player
@@ -57,7 +68,7 @@ export default class Character {
     gainXP(monster){
         let xp = monster.xp;
         this.xp += xp;
-        if (this.xp >= 100){
+        if (this.xp >= this.tnl){
             this.levelUp();
         }
         this.save();
@@ -77,6 +88,7 @@ export default class Character {
         this.def += 0;
         this.accuracy += 0;
         this.xp = 0;
+        this.updateCharTNL(this.level);
         console.log("leveled up")
         this.save();
         return;
@@ -112,5 +124,9 @@ export default class Character {
             this.hp = this.hp - (damage-armorValue);
             return;
         }
+    }
+    updateCharTNL(level){
+        this.tnl = determineTNL(level);
+        return;
     }
 };
