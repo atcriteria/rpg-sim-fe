@@ -23,7 +23,10 @@ export default function ScreenCombat({player}){
         if (!mon.isAlive()){
             return setMonster(null)
         }
-        return setMonster((combatEvent) => {return new Character(mon)})
+        if (combatEvent.playerKilled){
+            return setMonster(null)
+        }
+        return setMonster((mon) => {return new Character(mon)})
     }
 
     return(

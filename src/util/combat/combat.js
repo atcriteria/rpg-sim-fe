@@ -10,6 +10,8 @@ export default function combat(player, monster){
     let mon = monster;
     let patk = player.atk
     let matk = mon.atk;
+    let event = {}
+    event.mon = mon
 
     let monDamageTaken = mon.takeDamage(patk)
     // If we killed the monster
@@ -17,11 +19,14 @@ export default function combat(player, monster){
         p.gainXP(mon);
         return {mon, monDamageTaken}
     }
+    event.monDamageTaken = monDamageTaken;
     let playerDamageTaken = p.takeDamage(matk);
     // If the player died
     if(!p.isAlive()){
         p.kill();
+        event.playerKilled = true;
     }
+    event.playerDamageTaken = playerDamageTaken;
     p.save();
-    return {mon, monDamageTaken, playerDamageTaken}
+    return event
 }
