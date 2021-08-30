@@ -119,10 +119,10 @@ export default class Character {
         let armorValue = Math.round(Math.random()*this.def);
         // If we our damage is lower than the armor score, return
         if (damage < armorValue){
-            return
+            return 0
         } else {
             this.hp = this.hp - (damage-armorValue);
-            return;
+            return damage-armorValue
         }
     }
     updateCharTNL(level){

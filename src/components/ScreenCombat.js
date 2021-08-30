@@ -18,10 +18,12 @@ export default function ScreenCombat({player}){
     const handleAttack = e => {
         e.preventDefault();
         const combatEvent = combat(player, monster);
-        if (!combatEvent.isAlive()){
+        let mon = combatEvent.mon;
+        console.log(combatEvent)
+        if (!mon.isAlive()){
             return setMonster(null)
         }
-        return setMonster((combatEvent) => {return new Character(combatEvent)})
+        return setMonster((combatEvent) => {return new Character(mon)})
     }
 
     return(

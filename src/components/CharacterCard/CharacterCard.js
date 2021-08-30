@@ -19,7 +19,8 @@ export default function CharacterCard({character}){
                 <h3>🛡️ {character.def}</h3>
             </span>
             <span className="char-card-span">
-                {(character.player) ?
+                {
+                    (character.player) ?
                     <h3>🔖 {character.xp} / {character.tnl}</h3> :
                     <h3>🔖 {character.xp}</h3>
                 }
