@@ -1,0 +1,32 @@
+.victory-screen-wrapper {
+    background-color: rgba(0,0,0,70%);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+.victory-screen-content-wrapper {
+    width: 50%;
+    height: 60vh;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialogue-section {
+    margin: 5% 0;
+    width: 80%;
+    background-color: aquamarine;
+    height: 45vh;
+}
+
+button {
+    margin: 5% 0;
+}
