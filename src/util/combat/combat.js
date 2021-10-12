@@ -17,7 +17,7 @@ export default function combat(player, monster){
     // If we killed the monster
     if(!mon.isAlive()){
         p.gainXP(mon);
-        return {mon, monDamageTaken}
+        return {mon, monDamageTaken, p}
     }
     event.monDamageTaken = monDamageTaken;
     let playerDamageTaken = p.takeDamage(matk);
