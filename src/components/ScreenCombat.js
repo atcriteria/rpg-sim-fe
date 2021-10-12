@@ -24,10 +24,9 @@ export default function ScreenCombat({player}){
         let mon = combatEvent.mon;
         console.log(combatEvent)
         if (!mon.isAlive()){
-            return (
-                // eslint-disable-next-line no-sequences
-                setMonster(null), setShowVictoryScreen(true)
-            )
+                setMonster(null)
+                setShowVictoryScreen(true)
+                return
         }
         if (combatEvent.playerKilled){
             return setMonster(null)
