@@ -4,8 +4,10 @@ export default function XPCounter(props){
     const xpTicker = () => {
         setTimeout(() => {
             for(let i = currentXP; i < maxCurrentXP; i++){
-                let xpContainer = document.getElementById("victory-screen-xp-counter")
-                console.log(xpContainer)
+                setTimeout(() => {
+                    let xpContainer = document.getElementById("victory-screen-xp-counter")
+                    xpContainer.innerText = i+1
+                }, 1000)
             }
         }, 500)
     }

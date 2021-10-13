@@ -3,7 +3,7 @@ import XPCounter from './XPCounter';
 
 export default function VictoryScreen(props){
     const {setShowVictoryScreen, combatData} = props;
-    let playerXPBeforeAdding = combatData.p.xp - combatData.mon.xp;
+    let playerXPBeforeAdding = Math.max(0,(combatData.p.xp - 25));
     let playerXP = combatData.p.xp;
 
     const handleClick = e => {
