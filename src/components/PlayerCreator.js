@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import AvatarSelector from './AvatarSelector/AvatarSelector';
 import validateName from '../util/validateName';
 import generatePlayer from '../util/generatePlayer';
+import Inventory from '../util/item-system/inventory';
 
 const initialStateValues = {
     name: "Player",
@@ -110,7 +111,7 @@ export default function PlayerCreator({createCharacter}){
             xp: 0,
             tnl: 100,
             monies: 0,
-            inventory: {}
+            inventory: new Inventory()
         }
         const player = generatePlayer(p)
         console.log(player)

@@ -23,7 +23,7 @@ export default function GameWindow({player}){
     }
     return(
         <div className="game-window-wrapper" >
-            <Menu updateScreen={updateScreen} />
+            <Menu player={player} updateScreen={updateScreen} />
             {
                 getScreen()
             }

@@ -3,7 +3,7 @@
 import './Menu.css';
 import createObject from '../../util/item-system/createObject';
 
-export default function Menu({updateScreen}){
+export default function Menu({player, updateScreen}){
 
     const handleClick = e => {
         e.preventDefault();
@@ -20,6 +20,13 @@ export default function Menu({updateScreen}){
         e.preventDefault();
         let item = await createObject("food/apple.js")
         console.log(item)
+        let inv = player.getInventory()
+        try {
+            inv.addItemToInventory(player, item)
+        } catch {
+            console.log("error")
+        }
+        console.log(inv)
     }
 
     return(
