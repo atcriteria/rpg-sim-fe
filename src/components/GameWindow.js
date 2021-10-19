@@ -14,7 +14,7 @@ export default function GameWindow({player}){
         case "combat":
             return <ScreenCombat player={player} />
         case "inventory":
-            return <ScreenInventory />
+            return <ScreenInventory player={player} />
         default:
         }
     }
