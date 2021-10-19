@@ -38,8 +38,8 @@ export default class Character {
         this.xp = character.xp;
         this.lastXPLost = (character.player) ? character.lastXPLost : 0;
         this.tnl = determineTNL(character.level);
-        this.monies = (character.player) ? character.monies : (Math.ceil(character.level * MONSTER_MONIES_MULTIPLIER))
-        this.inventory = new Inventory(character.inventory.items)
+        this.monies = (character.player) ? character.monies : (Math.ceil(character.level * MONSTER_MONIES_MULTIPLIER));
+        this.inventory = (character.inventory) ? new Inventory(character.inventory.items) : null;
     }
     // Returns true if we are a player
     // Returns false is we are not a player
