@@ -24,6 +24,7 @@ export default function combat(player, monster){
     // If the player died
     if(!p.isAlive()){
         p.kill();
+        event.totalXPLost = p.lastXPLost;
         event.playerKilled = true;
     }
     event.playerDamageTaken = playerDamageTaken;
