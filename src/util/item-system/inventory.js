@@ -14,5 +14,21 @@ export default class Inventory{
     constructor(inv){
         this.inventory = (inv) ? inv.inventory : {}
     }
-    
+    addItemToInventory(item){
+        let id = item.id;
+        if (this.inventory[id]){
+            alert("DUPLICATION ERROR, NOTHING ADDED TO INVENTORY\n\nIf this persists, contact the administrator")
+        };
+        this.inventory[id] = item;
+        return;
+    }
+    removeItemFromInventory(item){
+        let id = item.id;
+        if (!this.inventory[id]){
+            alert("MISSING ITEM ERROR\n\nIf this persists, contact the administrator")
+        };
+        delete this.inventory[id];
+        return;
+    }
+
 }
