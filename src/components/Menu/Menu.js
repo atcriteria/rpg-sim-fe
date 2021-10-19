@@ -1,8 +1,7 @@
 // The main menu displayed in the
 // GameWindow component.
 import './Menu.css';
-import apple from '../../util/inventory/listOfObjects';
-import GameObject from '../../util/inventory/GameObject';
+import createObject from '../../util/item-system/createObject';
 
 export default function Menu({updateScreen}){
 
@@ -17,9 +16,9 @@ export default function Menu({updateScreen}){
         window.location.reload();
     }
 
-    const testObjectsButton = e => {
+    const testObjectsButton = async e => {
         e.preventDefault();
-        let item = new GameObject(apple)
+        let item = await createObject("food/apple.js")
         console.log(item)
     }
 
