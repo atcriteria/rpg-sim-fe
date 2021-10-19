@@ -109,7 +109,8 @@ export default function PlayerCreator({createCharacter}){
             "sp-def": basePlayerStats["sp-def"]+state["sp-def"],
             xp: 0,
             tnl: 100,
-            monies: 0
+            monies: 0,
+            inventory: {}
         }
         const player = generatePlayer(p)
         console.log(player)
