@@ -3,6 +3,7 @@
 // any other creature that can be attacked.
 
 import submitPlayer from './submitPlayer';
+import Inventory from './item-system/inventory';
 
 const MAX_XP_LOSS = .75;
 const BASE_TNL_INCREASE = 10;
@@ -38,7 +39,7 @@ export default class Character {
         this.lastXPLost = (character.player) ? character.lastXPLost : 0;
         this.tnl = determineTNL(character.level);
         this.monies = (character.player) ? character.monies : (Math.ceil(character.level * MONSTER_MONIES_MULTIPLIER))
-        this.inventory = character.inventory
+        this.inventory = new Inventory(character.inventory.items)
     }
     // Returns true if we are a player
     // Returns false is we are not a player
@@ -144,5 +145,9 @@ export default class Character {
     subtractMonies(amountMonies){
         this.monies = this.monies - amountMonies;
         return;
+    }
+    getInventory(){
+        console.log(this.inventory)
+        return this.inventory;
     }
 };
