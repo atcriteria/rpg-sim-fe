@@ -145,7 +145,16 @@ export default class Character {
         this.monies = this.monies - amountMonies;
         return;
     }
+    // Returns the Inventory Class
     getInventory(){
         return this.inventory;
+    }
+    // Returns the Items in inventory.items as an Array
+    getInventoryItems(){
+        let arr = []
+        for (const item in this.inventory.items){
+            arr.push(this.inventory.items[item])
+        }
+        return arr;
     }
 };
