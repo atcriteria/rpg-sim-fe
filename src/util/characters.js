@@ -6,6 +6,8 @@ import submitPlayer from './submitPlayer';
 
 const MAX_XP_LOSS = .75;
 const BASE_TNL_INCREASE = 10;
+const MONSTER_MONIES_MULTIPLIER = 2.75;
+const DEFAULT_MONIES_FOR_COMBAT = 10;
 
 // Pass character level
 // Return TNL
@@ -35,6 +37,7 @@ export default class Character {
         this.xp = character.xp;
         this.lastXPLost = (character.player) ? character.lastXPLost : 0;
         this.tnl = determineTNL(character.level);
+        this.monies = (character.player) ? character.monies : (Math.ceil(character.level * MONSTER_MONIES_MULTIPLIER))
     }
     // Returns true if we are a player
     // Returns false is we are not a player
@@ -69,6 +72,7 @@ export default class Character {
     gainXP(monster){
         let xp = monster.xp;
         this.xp += xp;
+        (monster.monies) ? this.addMonies(monster.monies) : this.addMonies(DEFAULT_MONIES_FOR_COMBAT);
         if (this.xp >= this.tnl){
             this.levelUp();
         }
@@ -130,6 +134,14 @@ export default class Character {
     }
     updateCharTNL(level){
         this.tnl = determineTNL(level);
+        return;
+    }
+    addMonies(amountMonies){
+        this.monies = this.monies + amountMonies;
+        return;
+    }
+    subtractMonies(amountMonies){
+        this.monies = this.monies - amountMonies;
         return;
     }
 };
