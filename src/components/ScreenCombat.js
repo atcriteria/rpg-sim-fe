@@ -32,6 +32,7 @@ export default function ScreenCombat({player}){
             return setShowVictoryScreen(true)
         }
         if (combatEvent.playerKilled){
+            setCombatData(combatEvent)
             setShowDefeatScreen(true)
             return setMonster(null)
         }
