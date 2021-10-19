@@ -7,11 +7,13 @@ import monsterFinder from '../util/combat/monsterFinder';
 import combat from '../util/combat/combat';
 import Character from '../util/characters';
 import VictoryScreen from './VictoryScreen/VictoryScreen';
+import DefeatScreen from './DefeatScreen/DefeatScreen';
 import { useState } from 'react';
 
 export default function ScreenCombat({player}){
     const [monster, setMonster] = useState(null)
     const [showVictoryScreen, setShowVictoryScreen] = useState(false)
+    const [showDefeatScreen, setShowDefeatScreen] = useState(false)
     const [combatData, setCombatData] = useState(null)
 
     const findMonster = e => {
@@ -25,12 +27,12 @@ export default function ScreenCombat({player}){
         let mon = combatEvent.mon;
         console.log(combatEvent)
         if (!mon.isAlive()){
-                setMonster(null)
-                setCombatData(combatEvent)
-                setShowVictoryScreen(true)
-                return
+            setMonster(null)
+            setCombatData(combatEvent)
+            return setShowVictoryScreen(true)
         }
         if (combatEvent.playerKilled){
+            setShowDefeatScreen(true)
             return setMonster(null)
         }
         return setMonster((mon) => {return new Character(mon)})
@@ -39,6 +41,7 @@ export default function ScreenCombat({player}){
     return(
         <div className="combat-screen-wrapper">
             { (showVictoryScreen) ? <VictoryScreen setShowVictoryScreen={setShowVictoryScreen} combatData={combatData} /> : ""}
+            { (showDefeatScreen) ? <DefeatScreen setShowDefeatScreen={setShowDefeatScreen} combatData={combatData} /> : ""}
             <div className="character-wrapper">
                 <CharacterCard character={player} key={player.name} />
                 {
