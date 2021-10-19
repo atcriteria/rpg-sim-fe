@@ -13,7 +13,7 @@ const determineTNL = (level) => {
     if (level === 1){
         return 100
     } else {
-        return 100 + (level * BASE_TNL_INCREASE);
+        return 100 + (level * BASE_TNL_INCREASE - 10);
     }
 }
 
