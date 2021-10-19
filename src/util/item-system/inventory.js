@@ -10,24 +10,32 @@ generated when the monster is initialized.
 
 */
 
+import submitPlayer from "../submitPlayer";
+
 export default class Inventory{
     constructor(inv){
-        this.inventory = (inv) ? inv.inventory : {}
+        this.items = (inv) ? inv : {}
     }
-    addItemToInventory(item){
+    addItemToInventory(player, item){
         let id = item.id;
-        if (this.inventory[id]){
+        if (this.items[id]){
             alert("DUPLICATION ERROR, NOTHING ADDED TO INVENTORY\n\nIf this persists, contact the administrator")
         };
-        this.inventory[id] = item;
-        return;
+        try {
+            this.items[id] = item;
+            submitPlayer(player)
+            return;
+        } catch {
+            console.log("an error occurred")
+        }
     }
-    removeItemFromInventory(item){
+    removeItemFromInventory(player, item){
         let id = item.id;
-        if (!this.inventory[id]){
+        if (!this.items[id]){
             alert("MISSING ITEM ERROR\n\nIf this persists, contact the administrator")
         };
-        delete this.inventory[id];
+        delete this.items[id];
+        submitPlayer(player)
         return;
     }
 

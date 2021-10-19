@@ -1,12 +1,12 @@
 import GameObject from "./GameObject";
 import negativeItem from "./negativeItem";
 
-export default function createObject(path){
+export default async function createObject(path){
     if (!path){
         return new GameObject(negativeItem)
     }
     try {
-        let obj = new GameObject(import(`../../items/${path}`))
+        let obj = new GameObject(await import(`../../items/${path}`))
         return obj
     }
     catch {
