@@ -52,7 +52,6 @@ export default class Character {
     }
     // Saves the player object to local storage
     save(){
-        console.log("calling save")
         // don't save if we arent a player
         if (!this.isPlayer){
             return
@@ -147,7 +146,6 @@ export default class Character {
         return;
     }
     getInventory(){
-        console.log(this.inventory)
         return this.inventory;
     }
 };
