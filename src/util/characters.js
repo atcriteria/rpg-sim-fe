@@ -33,6 +33,7 @@ export default class Character {
         this["sp-atk"] = character["sp-atk"] ;
         this["sp-def"] = character["sp-def"];
         this.xp = character.xp;
+        this.lastXPLost = (character.player) ? character.lastXPLost : 0;
         this.tnl = determineTNL(character.level);
     }
     // Returns true if we are a player
@@ -101,7 +102,9 @@ export default class Character {
             return
         }
         this.refreshStats();
+        let prevXP = this.xp
         this.xp = Math.floor(this.xp*MAX_XP_LOSS)
+        this.lastXPLost = prevXP-this.xp
         return;
     }
     // sets HP and SP to max values
