@@ -5,7 +5,7 @@
 import Menu from './Menu/Menu';
 import {useState} from 'react';
 import ScreenCombat from './ScreenCombat';
-import ScreenInventory from './ScreenInventory'
+import ScreenInventory from './ScreenInventory/ScreenInventory'
 
 export default function GameWindow({player}){
     const [window, setWindow] = useState("inventory")
