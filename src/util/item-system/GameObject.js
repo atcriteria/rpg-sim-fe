@@ -15,6 +15,6 @@ import generateUniqueID from "../generateUniqueID";
 export default class GameObject{
     constructor(item){
         this.id = (item.id) ? item.id : generateUniqueID();
-        this.props = {...item.default};
+        this.props = (item.default) ? {...item.default} : {...item};
     }
 }
