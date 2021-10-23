@@ -13,3 +13,9 @@ test('Defaults To Negative Item', async () => {
     // The following is the same as item.props.name
     expect(item).toHaveProperty('props.name','Negative Item');
 })
+
+test('Item Created Is Expected Item', async () => {
+    const item = await createObject('food/apple.js');
+    expect(item).toHaveProperty('props.name', 'apple');
+    expect(item).toHaveProperty('props.value', 2);
+})
