@@ -10,6 +10,9 @@
 // future this will likely make an API call so users
 // cannot easily hack their characters.
 export default function submitPlayer(player){
+    if(player.name === "TestChar"){
+        return
+    };
     if(player){
         window.localStorage.setItem("player", JSON.stringify(player))
         return true

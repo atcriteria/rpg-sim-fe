@@ -1,6 +1,6 @@
 import Character from "./characters";
 const mockCharacterData = {
-    name: "Caterpillar",
+    name: "TestChar",
     img: `${origin}/images/monsters/caterpillar.png`,
     level: 1,
     hp: 20,

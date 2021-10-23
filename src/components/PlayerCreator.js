@@ -94,6 +94,10 @@ export default function PlayerCreator({createCharacter}){
     const handleSubmit = (e) => {
         e.preventDefault()
         // combine the base stats with the adjusted stats
+        if(state.name === "TestChar"){
+            alert("You must pick a different name");
+            return;
+        }
         const p = {
             name: basePlayerStats.name+state.name,
             player: true,
