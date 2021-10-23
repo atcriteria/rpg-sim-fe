@@ -19,3 +19,9 @@ test('Add Item To Player Inventory', () => {
     inv.addItemToInventory(player, testItem);
     expect(inv.items[1]).toHaveProperty("name", "test-item");
 })
+
+test('Remove Item From Player Inventory', () => {
+    let inv = player.inventory;
+    inv.removeItemFromInventory(player, testItem);
+    expect(inv.items[1]).toBeUndefined();
+})
