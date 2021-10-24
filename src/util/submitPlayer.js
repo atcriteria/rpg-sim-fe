@@ -11,7 +11,7 @@
 // cannot easily hack their characters.
 export default function submitPlayer(player){
     if(player.name === "TestChar"){
-        return
+        return true
     };
     if(player){
         window.localStorage.setItem("player", JSON.stringify(player))

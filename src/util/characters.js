@@ -56,7 +56,7 @@ export default class Character {
         if (!this.isPlayer){
             return
         } else {
-            submitPlayer(this)
+            return submitPlayer(this)
         }
     }
     // Check if we are alive or not

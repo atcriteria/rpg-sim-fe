@@ -1,7 +1,11 @@
 import Character from "./characters";
+import submitPlayer from "./submitPlayer";
+
 const mockCharacterData = {
     name: "TestChar",
     img: `${origin}/images/monsters/caterpillar.png`,
+    test: true,
+    player: true,
     level: 1,
     hp: 20,
     maxHP: 20,
@@ -23,4 +27,9 @@ test('Create A Character', () => {
 test('Gain Experience', () => {
     char.gainXP(monster);
     expect(char.xp).toBe(40);
+});
+
+test('Save Function Call', async () =>{
+    let saveOutput = await char.save();
+    expect(saveOutput).toBeTruthy();
 });
