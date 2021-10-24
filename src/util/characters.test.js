@@ -32,3 +32,8 @@ test('Save Function Call', async () =>{
     let saveOutput = await char.save();
     expect(saveOutput).toBeTruthy();
 });
+
+test('Player Leveled Up', async () => {
+    await char.levelUp();
+    expect(char.level).toBe(2)
+})
