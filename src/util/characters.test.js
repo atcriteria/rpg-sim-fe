@@ -1,5 +1,4 @@
 import Character from "./characters";
-import submitPlayer from "./submitPlayer";
 
 const mockCharacterData = {
     name: "TestChar",
