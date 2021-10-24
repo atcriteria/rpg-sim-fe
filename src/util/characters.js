@@ -36,6 +36,7 @@ export default class Character {
         this["sp-atk"] = character["sp-atk"] ;
         this["sp-def"] = character["sp-def"];
         this.xp = character.xp;
+        this.deaths = (character.player) ? character.deaths : null;
         this.lastXPLost = (character.player) ? character.lastXPLost : 0;
         this.tnl = determineTNL(character.level);
         this.monies = (character.player) ? character.monies : (Math.ceil(character.level * MONSTER_MONIES_MULTIPLIER));
@@ -95,7 +96,6 @@ export default class Character {
         this.accuracy += 0;
         this.xp = 0;
         this.updateCharTNL(this.level);
-        console.log("leveled up")
         this.save();
         return;
     }
@@ -103,13 +103,13 @@ export default class Character {
     kill(){
         // Sanity check
         if (!this.isPlayer()){
-            console.log(`You killed a ${this.name}`)
             return
         }
         this.refreshStats();
-        let prevXP = this.xp
-        this.xp = Math.floor(this.xp*MAX_XP_LOSS)
-        this.lastXPLost = prevXP-this.xp
+        let prevXP = this.xp;
+        this.xp = Math.floor(this.xp*MAX_XP_LOSS);
+        this.lastXPLost = prevXP-this.xp;
+        this.deaths += 1;
         return;
     }
     // sets HP and SP to max values
