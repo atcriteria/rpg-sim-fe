@@ -109,6 +109,7 @@ export default function PlayerCreator({createCharacter}){
             maxSP: basePlayerStats.sp+state.sp,
             atk: basePlayerStats.atk+state.atk,
             def: basePlayerStats.def+state.def,
+            deaths: 0,
             accuracy: basePlayerStats.accuracy+state.accuracy,
             "sp-atk": basePlayerStats["sp-atk"]+state["sp-atk"],
             "sp-def": basePlayerStats["sp-def"]+state["sp-def"],
