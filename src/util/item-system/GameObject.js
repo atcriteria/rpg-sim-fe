@@ -20,6 +20,8 @@ export default class GameObject{
         // in parentObject.default. If we are creating a 
         // GameObject without dynamically importing, we just
         // need to grab all of their props from the object itself
-        this.props = (item.default) ? {...item.default} : {...item};
+        for(let key in item){
+            this[key] = item[key]
+        }
     }
 }

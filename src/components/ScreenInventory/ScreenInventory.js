@@ -11,7 +11,7 @@ export default function ScreenInventory({player}){
             <p className="monies-p" title={`you have ${player.monies} monies to spend on items`}>💸 {player.monies}</p>
             {
                 inv.map((item, ind) => {
-                    return (<div key={item.id}>{ind+1} - Name: {item.props.name}, Value: {item.props.value}</div>)
+                    return (<div key={item.id}>{ind+1} - Name: {item.default.name}, Value: {item.default.value}</div>)
                 })
             }
         </div>
