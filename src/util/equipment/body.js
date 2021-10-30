@@ -12,7 +12,7 @@ Characters may only wear one ring and one amulet at a time.
 
 export default class Body{
     constructor(charBody){
-        this.head = charBody.head;
+        this.head = charBody.head || null;
         this.torso = charBody.torso;
         this.legs = charBody.legs;
         this.hands = charBody.hands;
