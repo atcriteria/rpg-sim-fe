@@ -14,7 +14,7 @@ let mockBody = {
 
 let charBody = new Body({});
 
-test('intitialize body class', ()=> {
+test('intitialize body class with empty body constructor', ()=> {
     expect(charBody["head"]).toBeNull();
     expect(charBody["torso"]).toBeNull();
 });
