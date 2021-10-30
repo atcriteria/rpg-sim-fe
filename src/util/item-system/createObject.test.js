@@ -13,6 +13,6 @@ test('Defaults To Negative Item', async () => {
 
 test('Item Created Is Expected Item', async () => {
     const item = await createObject('food/apple.js');
-    expect(item.default).toHaveProperty('name', 'apple');
-    expect(item.default).toHaveProperty('value', 2);
+    expect(item).toHaveProperty('name', 'apple');
+    expect(item).toHaveProperty('value', 2);
 })
