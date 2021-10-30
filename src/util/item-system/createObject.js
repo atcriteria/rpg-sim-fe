@@ -7,10 +7,12 @@ export default async function createObject(path){
     }
     try {
         let obj = new GameObject(await import(`../../items/${path}`))
-        for (let key in obj.default){
-            obj[key] = obj.default[key]
+        if (obj.default){
+            for (let key in obj.default){
+                obj[key] = obj.default[key]
+            }
+            delete obj.default;
         }
-        delete obj.default;
         return obj
     }
     catch {
