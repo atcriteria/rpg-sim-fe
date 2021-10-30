@@ -38,6 +38,12 @@ export default class Body{
             return;
         }
     }
+    // Unwear armors
+    unwear(item){
+        let type = item.type;
+        this[type] = null;
+        return;
+    }
     // Wield weapons
     wield(item){
         let hands = item.hands;
@@ -58,5 +64,19 @@ export default class Body{
                 return;
             }
         }
+    }
+    // Unwield weapons
+    unwield(item){
+        let hands = item.hands;
+        if (hands === 2){
+            this.lhand = null;
+            this.rhand = null;
+            return;
+        }
+        if (hands === 1){
+            this.rhand = null;
+            return;
+        }
+        return;
     }
 }
