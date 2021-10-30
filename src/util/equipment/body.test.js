@@ -11,8 +11,8 @@ let mockBody = {
     "ring": null,
     "amulet": null
 }
-let emptyObject = {}
-let charBody = new Body(emptyObject);
+
+let charBody = new Body({});
 
 test('intitialize body class', ()=> {
     expect(charBody["head"]).toBeNull();
