@@ -13,14 +13,14 @@ Characters may only wear one ring and one amulet at a time.
 export default class Body{
     constructor(charBody){
         this.head = charBody.head || null;
-        this.torso = charBody.torso;
-        this.legs = charBody.legs;
-        this.hands = charBody.hands;
-        this.wrist = charBody.wrist;
-        this.lhand = charBody.lhand;
-        this.rhand = charBody.rhand;
-        this.ring = charBody.ring;
-        this.amulet = charBody.amulet;
+        this.torso = charBody.torso || null;
+        this.legs = charBody.legs || null;
+        this.hands = charBody.hands || null;
+        this.wrist = charBody.wrist || null;
+        this.lhand = charBody.lhand || null;
+        this.rhand = charBody.rhand || null;
+        this.ring = charBody.ring || null;
+        this.amulet = charBody.amulet || null;
     }
     // Wear armors
     wear(item){
