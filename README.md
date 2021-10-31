@@ -1,5 +1,5 @@
 # rpg-sim-fe
-The Front End for an RPG Simulator based on a previous project of mine.
+The Front End for RPG Sim 2!
 
 Current Goals are to write tests for many of the new classes. I would like to incorporate some TypeScript at some point but I may be too far along in the application to really justify rewriting all of it in TS. 
 
